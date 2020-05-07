@@ -30,7 +30,12 @@ class AuthController extends Controller
      */
     public function me()
     {
-        return response()->json(auth()->user());
+        try {
+            return response()->json(auth()->user());
+        } catch (\Exception $exception) {
+            return response()->json($exception->getMessage());
+        }
+        
     }
 
     public function payload()
