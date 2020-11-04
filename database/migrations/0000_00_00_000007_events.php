@@ -15,7 +15,7 @@ class Events extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->string('salon')->nullable();
             $table->string('grupo')->nullable();
             $table->string('cliente')->nullable();
@@ -29,18 +29,39 @@ class Events extends Migration
             $table->decimal('subtotal')->nullable();
             $table->decimal('final')->nullable();
             $table->decimal('iva')->nullable();
-            $table->date('start');
+            $table->date('start')->nullable();
             $table->json('color')->nullable();
             $table->boolean('draggable')->default(true)->nullable();
             $table->json('resizable')->nullable();
             $table->json('products')->nullable();
-            $table->decimal('total');
+            $table->decimal('total')->nullable();
             $table->string('provider_name')->nullable();
             $table->string('material_name')->nullable();
             $table->json('material_qty')->nullable();
             $table->decimal('costo_unitario')->nullable();
-            $table->decimal('flete')->nullable();
+            $table->json('flete')->nullable();
             $table->decimal('mano_de_obra')->nullable();
+            $table->string('hotel')->nullable();
+            $table->decimal('comision')->nullable();
+            $table->decimal('comisionFinal')->nullable();
+            $table->json('coordinacion')->nullable();
+            $table->decimal('ctoOperacion')->nullable();
+            $table->json('entretenimiento')->nullable();
+            $table->decimal('finalDlrs')->nullable();
+            $table->string('group')->nullable();
+            $table->decimal('ivaDlrs')->nullable();
+            $table->decimal('ivaFinal')->nullable();
+            $table->decimal('mn')->nullable();
+            $table->json('proveedores')->nullable();
+            $table->decimal('subEntretainment')->nullable();
+            $table->decimal('subEquipment')->nullable();
+            $table->decimal('supOperacion')->nullable(); 
+            $table->decimal('subTotalDlrs')->nullable();
+            $table->decimal('subtotalFinal')->nullable(); 
+            $table->decimal('totalDlrs')->nullable(); 
+            $table->decimal('totalIvaFinal')->nullable();
+            $table->decimal('utilidad')->nullable();
+            $table->json('workforce')->nullable();
             $table->timestamps();
         });
     }

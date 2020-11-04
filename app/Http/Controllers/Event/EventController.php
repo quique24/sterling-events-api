@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Event;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\EventCollection;
 
 class EventController extends Controller
 {
@@ -15,7 +16,8 @@ class EventController extends Controller
      */
     public function index()
     {
-       return response()->json(Event::all(), 200);
+        return response()->json(new EventCollection(Event::all()->sortByDesc('id')), 200);
+       //return response()->json(Event::all(), 200);
     }
 
     /**
@@ -62,8 +64,28 @@ class EventController extends Controller
             $event->material_name = $request->material_name;
             $event->material_qty = json_encode($request->material_qty);
             $event->costo_unitario = $request->costo_unitario;
-            $event->flete = $request->flete;
-            $event->mano_de_obra = $request->mano_de_obra;
+            $event->flete = json_encode($request->flete);
+            $event->hotel = $request->hotel;
+            $event->comision = $request->comision;
+            $event->comisionFinal = $request->comisionFinal;
+            $event->coordinacion = json_encode($request->coodinacion);
+            $event->ctoOperacion = $request->ctoOperacion;
+            $event->entretenimiento = json_encode($request->entretenimiento);
+            $event->finalDlrs = $request->finalDlrs;
+            $event->group = $request->group;
+            $event->ivaDlrs = $request->ivaDlrs;
+            $event->ivaFinal = $request->ivaFinal;
+            $event->mn = $request->mn;
+            $event->proveedores = json_encode($request->proveedores);
+            $event->subEntretainment = $request->subEntretainment;
+            $event->subEquipment = $request->subEquipment;
+            $event->supOperacion = $request->supOperacion;
+            $event->subTotalDlrs = $request->subTotalDlrs;
+            $event->subtotalFinal = $request->subtotalFinal;
+            $event->totalDlrs = $request->totalDlrs;
+            $event->totalIvaFinal = $request->totalIvaFinal;
+            $event->utilidad = $request->utilidad;
+            $event->workforce = json_encode($request->workforce);
             $event->save();
              
             \DB::commit();
@@ -84,34 +106,58 @@ class EventController extends Controller
     public function update(Event $event, Request $request)
     {
         $event->update($request->only([
-            'title', 
-            'start', 
-            'total',
+            'title',
+            'start',
+            'draggable',
             'salon',
             'grupo',
             'cliente',
-            'gte_de_gpos', 
-            'pax',           
-            'montaje', 
-            'notas', 
-            'equipment', 
-            'operation', 
-            'entertainment', 
-            'subtotal', 
-            'final',  
-            'iva',            
-            'provider_name', 
-            'material_name', 
-            'costo_unitario', 
-            'flete', 
-            'mano_de_obra', 
+            'gte_de_gpos',
+            'pax',
+            'montaje',
+            'notas',
+            'equipment',
+            'operation',
+            'entertainment',
+            'subtotal',
+            'final',
+            'iva',
+            'total',
+            'provider_name',
+            'material_name',
+            'costo_unitario',
+            'mano_de_obra',
+            'hotel',
+            'comision',
+            'comisionFinal',
+            'ctoOperacion',
+            'finalDlrs',
+            'group',
+            'ivaDlrs',
+            'ivaFinal',
+            'mn',
+            'subEntretainment',
+            'subEquipment',
+            'supOperacion',
+            'subTotalDlrs',
+            'subtotalFinal',
+            'totalDlrs',
+            'totalIvaFinal',
+            'utilidad', 
             ]));
+
         $event->update([
             "color" => json_encode($request->color),
             "resizable" => json_encode($request->resizable),
             "products" => json_encode($request->products),
             "material_qty" => json_encode($request->material_qty),
+            "flete" => json_encode($request->flete),
+            "coordinacion" => json_encode($request->coordinacion),
+            "entretenimiento" => json_encode($request->entretenimiento),
+            "proveedores" => json_encode($request->proveedores),
+            "workforce" => json_encode($request->workforce),
         ]);
+
         return response()->json($event, 200);
     }
 
