@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
+    /**
+     * Relationship Belongs To Address
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+
      /**
      * The attributes that are mass assignable.
      *
@@ -236,5 +244,38 @@ class Event extends Model
     public function getManoDeObraAttribute($value)
     {
         return floatval($value);
+    }
+
+     /**
+     * Value Attribute
+     *
+     * @param  string  $value
+     * @return json
+     */
+    public function getWorkforceAttribute($value)
+    {
+        return json_decode($value);
+    }
+
+     /**
+     * Value Attribute
+     *
+     * @param  string  $value
+     * @return json
+     */
+    public function getCoordinacionAttribute($value)
+    {
+        return json_decode($value);
+    }
+
+     /**
+     * Value Attribute
+     *
+     * @param  string  $value
+     * @return json
+     */
+    public function getEntretenimientoAttribute($value)
+    {
+        return json_decode($value);
     }
 }

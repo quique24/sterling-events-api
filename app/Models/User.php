@@ -11,6 +11,14 @@ class User extends Authenticatable implements JWTSubject
     use Notifiable;
 
     /**
+     * Relationship Has Many Products
+     */
+    public function events()
+    {
+        return $this->hasMany('App\Models\Events');
+    }
+
+    /**
      * The model's default values for attributes.
      *
      * @var array

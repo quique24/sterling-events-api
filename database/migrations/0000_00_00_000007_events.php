@@ -62,6 +62,8 @@ class Events extends Migration
             $table->decimal('totalIvaFinal')->nullable();
             $table->decimal('utilidad')->nullable();
             $table->json('workforce')->nullable();
+            $table->unsignedInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
