@@ -21,7 +21,8 @@ class EventCollection extends ResourceCollection
                 'color' => $model->color,
                 'grupo' => $model->grupo,
                 'group' => $model->group,
-                'hotel' => $model->hotel
+                'hotel' => $model->hotel,
+                'user' => $model->user,
             ];
         });
     }

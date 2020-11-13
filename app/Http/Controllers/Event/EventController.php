@@ -38,6 +38,8 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        $user = auth()->guard('api')->user();
+
         \DB::beginTransaction();
         try {
             $event = new Event();
@@ -86,6 +88,7 @@ class EventController extends Controller
             $event->totalIvaFinal = $request->totalIvaFinal;
             $event->utilidad = $request->utilidad;
             $event->workforce = json_encode($request->workforce);
+            $event->user()->associate($user);
             $event->save();
              
             \DB::commit();
