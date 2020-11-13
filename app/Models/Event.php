@@ -61,7 +61,7 @@ class Event extends Model
         'proveedores',
         'subEntretainment',
         'subEquipment',
-        'supOperacion',
+        'subOperacion',
         'subTotalDlrs',
         'subtotalFinal',
         'totalDlrs',
@@ -232,7 +232,7 @@ class Event extends Model
      */
     public function getFleteAttribute($value)
     {
-        return floatval($value);
+        return json_decode($value);
     }
 
     /**
@@ -277,5 +277,99 @@ class Event extends Model
     public function getEntretenimientoAttribute($value)
     {
         return json_decode($value);
+    }
+
+    /**
+     * Value Attribute
+     *
+     * @param  string  $value
+     * @return json
+     */
+    public function getProveedoresAttribute($value)
+    {
+        return json_decode($value);
+    }
+
+    /**
+     * Costo Unitario Attribute
+     *
+     * @param  string  $value
+     * @return float
+     */
+    public function getMnAttribute($value)
+    {
+        return floatval($value);
+    }
+
+    public function toArray()
+    {
+        $toArray = parent::toArray();
+        $toArray['finalDlrs'] = $this->finalDlrs;
+        $toArray['ivaDlrs'] = $this->ivaDlrs;
+        $toArray['ivaFinal'] = $this->ivaFinal;
+        $toArray['subEntretainment'] = $this->subEntretainment;
+        $toArray['subEquipment'] = $this->subEquipment;
+        $toArray['subOperacion'] = $this->subOperacion;
+        $toArray['subTotalDlrs'] = $this->subTotalDlrs;
+        $toArray['subtotalFinal'] = $this->subtotalFinal;
+        $toArray['totalDlrs'] = $this->totalDlrs;
+        $toArray['totalIvaFinal'] = $this->totalIvaFinal;
+        return $toArray;
+    }
+
+    public function getFinalDlrsAttribute($value)
+    {
+        return floatval($value);
+    }
+
+    public function getIvaDlrsAttribute($value)
+    {
+        return floatval($value);
+    }
+
+    public function getSubEntretainmentAttribute($value)
+    {
+        return floatval($value);
+    }
+
+    public function getSubEquipmentAttribute($value)
+    {
+        return floatval($value);
+    }
+
+    public function getSubOperacionAttribute($value)
+    {
+        return floatval($value);
+    }
+
+    public function getSubTotalDlrsAttribute($value)
+    {
+        return floatval($value);
+    }
+
+    public function getSubtotalFinalAttribute($value)
+    {
+        return floatval($value);
+    }
+
+    public function getTotalDlrsAttribute($value)
+    {
+        return floatval($value);
+    }
+
+    public function getIvaFinalAttribute($value)
+    {
+        return floatval($value);
+    }
+
+    public function getTotalIvaFinalAttribute($value)
+    {
+        return floatval($value);
+    }
+
+    
+    public function getUtilidadAttribute($value)
+    {
+        return floatval($value);
     }
 }

@@ -88,7 +88,7 @@ class EventsTableSeeder extends Seeder
         ]);
         $event->subEntretainment = 15.15;
         $event->subEquipment = 15.15;
-        $event->supOperacion = 15.15;
+        $event->subOperacion = 15.15;
         $event->subTotalDlrs = 15.15;
         $event->subtotalFinal = 15.15;
         $event->totalDlrs = 15.15;
@@ -174,7 +174,7 @@ class EventsTableSeeder extends Seeder
         //     ]),
         //     'subEntretainment' => 15.15,
         //     'subEquipment' => 15.15,
-        //     'supOperacion' => 15.15,
+        //     'subOperacion' => 15.15,
         //     'subTotalDlrs' => 15.15,
         //     'subtotalFinal' => 15.15, 
         //     'totalDlrs' => 15.15,

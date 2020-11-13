@@ -17,7 +17,6 @@ class EventController extends Controller
     public function index()
     {
         return response()->json(new EventCollection(Event::all()->sortByDesc('id')), 200);
-       //return response()->json(Event::all(), 200);
     }
 
     /**
@@ -39,7 +38,7 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $user = auth()->guard('api')->user();
-
+        
         \DB::beginTransaction();
         try {
             $event = new Event();
@@ -81,7 +80,7 @@ class EventController extends Controller
             $event->proveedores = json_encode($request->proveedores);
             $event->subEntretainment = $request->subEntretainment;
             $event->subEquipment = $request->subEquipment;
-            $event->supOperacion = $request->supOperacion;
+            $event->subOperacion = $request->subOperacion;
             $event->subTotalDlrs = $request->subTotalDlrs;
             $event->subtotalFinal = $request->subtotalFinal;
             $event->totalDlrs = $request->totalDlrs;
@@ -108,6 +107,7 @@ class EventController extends Controller
      */
     public function update(Event $event, Request $request)
     {
+        
         $event->update($request->only([
             'title',
             'start',
@@ -141,7 +141,7 @@ class EventController extends Controller
             'mn',
             'subEntretainment',
             'subEquipment',
-            'supOperacion',
+            'subOperacion',
             'subTotalDlrs',
             'subtotalFinal',
             'totalDlrs',

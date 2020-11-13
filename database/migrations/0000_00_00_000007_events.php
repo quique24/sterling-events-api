@@ -55,7 +55,7 @@ class Events extends Migration
             $table->json('proveedores')->nullable();
             $table->decimal('subEntretainment')->nullable();
             $table->decimal('subEquipment')->nullable();
-            $table->decimal('supOperacion')->nullable(); 
+            $table->decimal('subOperacion')->nullable(); 
             $table->decimal('subTotalDlrs')->nullable();
             $table->decimal('subtotalFinal')->nullable(); 
             $table->decimal('totalDlrs')->nullable(); 
