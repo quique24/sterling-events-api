@@ -49,7 +49,6 @@ class EventController extends Controller
             $event->products = json_encode($request->products);
             $event->total = $request->total;
             $event->salon = $request->salon;
-            $event->grupo = $request->grupo;
             $event->cliente = $request->cliente;
             $event->gte_de_gpos = $request->gte_de_gpos;
             $event->pax = $request->pax;
@@ -61,9 +60,6 @@ class EventController extends Controller
             $event->subtotal = $request->subtotal;
             $event->final = $request->final;
             $event->iva = $request->iva;
-            $event->provider_name = $request->provider_name;
-            $event->material_name = $request->material_name;
-            $event->material_qty = json_encode($request->material_qty);
             $event->costo_unitario = $request->costo_unitario;
             $event->flete = json_encode($request->flete);
             $event->hotel = $request->hotel;
@@ -87,6 +83,7 @@ class EventController extends Controller
             $event->totalIvaFinal = $request->totalIvaFinal;
             $event->utilidad = $request->utilidad;
             $event->workforce = json_encode($request->workforce);
+            $event->cambio = $request->cambio;
             $event->user()->associate($user);
             $event->save();
              
@@ -113,7 +110,6 @@ class EventController extends Controller
             'start',
             'draggable',
             'salon',
-            'grupo',
             'cliente',
             'gte_de_gpos',
             'pax',
@@ -126,8 +122,6 @@ class EventController extends Controller
             'final',
             'iva',
             'total',
-            'provider_name',
-            'material_name',
             'costo_unitario',
             'mano_de_obra',
             'hotel',
@@ -147,13 +141,13 @@ class EventController extends Controller
             'totalDlrs',
             'totalIvaFinal',
             'utilidad', 
+            'cambio',
             ]));
 
         $event->update([
             "color" => json_encode($request->color),
             "resizable" => json_encode($request->resizable),
             "products" => json_encode($request->products),
-            "material_qty" => json_encode($request->material_qty),
             "flete" => json_encode($request->flete),
             "coordinacion" => json_encode($request->coordinacion),
             "entretenimiento" => json_encode($request->entretenimiento),

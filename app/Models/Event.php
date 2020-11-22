@@ -28,7 +28,6 @@ class Event extends Model
         'resizable',
         'products',
         'salon',
-        'grupo',
         'cliente',
         'gte_de_gpos',
         'pax',
@@ -41,9 +40,6 @@ class Event extends Model
         'final',
         'iva',
         'total',
-        'provider_name',
-        'material_name',
-        'material_qty',
         'costo_unitario',
         'flete',
         'mano_de_obra',
@@ -68,6 +64,7 @@ class Event extends Model
         'totalIvaFinal',
         'utilidad',
         'workforce',
+        'cambio',
     ];
 
     /**
@@ -98,17 +95,6 @@ class Event extends Model
      * @return json
      */
     public function getResizableAttribute($value)
-    {
-        return json_decode($value);
-    }
-
-    /**
-     * Value Attribute
-     *
-     * @param  string  $value
-     * @return json
-     */
-    public function getMaterialQtyAttribute($value)
     {
         return json_decode($value);
     }
@@ -369,6 +355,17 @@ class Event extends Model
 
     
     public function getUtilidadAttribute($value)
+    {
+        return floatval($value);
+    }
+
+    /**
+     * Cost Attribute
+     *
+     * @param  string  $value
+     * @return float
+     */
+    public function getCambioAttribute($value)
     {
         return floatval($value);
     }

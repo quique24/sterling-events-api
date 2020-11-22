@@ -17,7 +17,6 @@ class Events extends Migration
             $table->bigIncrements('id');
             $table->string('title')->nullable();
             $table->string('salon')->nullable();
-            $table->string('grupo')->nullable();
             $table->string('cliente')->nullable();
             $table->string('gte_de_gpos')->nullable();
             $table->string('pax')->nullable();
@@ -35,9 +34,6 @@ class Events extends Migration
             $table->json('resizable')->nullable();
             $table->json('products')->nullable();
             $table->decimal('total')->nullable();
-            $table->string('provider_name')->nullable();
-            $table->string('material_name')->nullable();
-            $table->json('material_qty')->nullable();
             $table->decimal('costo_unitario')->nullable();
             $table->json('flete')->nullable();
             $table->decimal('mano_de_obra')->nullable();
@@ -63,6 +59,7 @@ class Events extends Migration
             $table->decimal('utilidad')->nullable();
             $table->json('workforce')->nullable();
             $table->unsignedInteger('user_id')->nullable();
+            $table->decimal('cambio')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

@@ -27,7 +27,6 @@ class EventsTableSeeder extends Seeder
             'afterEnd' => true,
         ]);
         $event->salon = 'Aranjuez';
-        $event->grupo = '3 B';
         $event->cliente = 'El alex Mejia';
         $event->gte_de_gpos = 'Enrique Mendoza III';
         $event->pax = 'pax';
