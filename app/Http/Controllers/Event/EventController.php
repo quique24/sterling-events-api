@@ -65,7 +65,7 @@ class EventController extends Controller
             $event->hotel = $request->hotel;
             $event->comision = $request->comision;
             $event->comisionFinal = $request->comisionFinal;
-            $event->coordinacion = json_encode($request->coodinacion);
+            $event->coordinacion = json_encode($request->coordinacion);
             $event->ctoOperacion = $request->ctoOperacion;
             $event->entretenimiento = json_encode($request->entretenimiento);
             $event->finalDlrs = $request->finalDlrs;
